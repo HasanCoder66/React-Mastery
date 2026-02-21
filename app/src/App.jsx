@@ -1,25 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./components/Card";
 
 import "./App.css";
 const Counter = () => {
-  // console.log("render");
-  // const [count, setCount] = useState(0);
-  // console.log(count);
+  console.log("render");
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(count);
+    }, 2000);
+  }, [count]);
+
   return (
     <>
-      {/* <div>{count}</div>
+      <div>{count}</div>
 
       <MeraComp />
       <div>
-        <button onClick={() => setCount(count + 1)}>Increment</button>
-        <button onClick={() => setCount(count - 1)}>Decrement</button>
-      </div> */}
-      <div className="cardParent">
+        {/* <button onClick={() => {setCount((prev) => prev + 1); setCount((prev) => prev + 1);}}>Increment</button> */}
+        <button
+          onClick={() => {
+            setCount((prev) => prev + 1);
+          }}
+        >
+          Increment
+        </button>
+        <button onClick={() => setCount((prev) => prev - 1)}>Decrement</button>
+      </div>
+      {/* <div className="cardParent">
         <Card
           title="cap ha bi"
           description="Random cap ki description daaldo..."
           btnText="Random Cap Button"
+          // jani="jani"
         />
         <Card
           title="batiing"
@@ -38,7 +52,7 @@ const Counter = () => {
         >
           <p>ye children wala paragraph hai</p>
         </Card>
-      </div>
+      </div> */}
     </>
   );
 };

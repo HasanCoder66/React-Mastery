@@ -2,7 +2,11 @@ import React from "react";
 import "../App.css";
 
 const Card = ({ title, description, btnText, children }) => {
-  console.log(title);
+    console.log("Card chlaaa ==>")
+//   console.log(title);
+const handler = () => {
+    console.log("Card chlaaa ==>")
+}
   return (
     <div className="card">
       <div className="header">
@@ -14,10 +18,10 @@ const Card = ({ title, description, btnText, children }) => {
         {children}
       </div>
       <div className="footer">
-        <button>{btnText}</button>
+        <button onClick={handler}>{btnText}</button>
       </div>
     </div>
   );
 };
 
-export default Card;
+export default React.memo(Card);
