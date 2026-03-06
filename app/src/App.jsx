@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./components/Card";
 
 import "./App.css";
+import Card2 from "./components/Card2";
 const Counter = () => {
   console.log("render");
   const [count, setCount] = useState(0);
@@ -53,6 +54,8 @@ const Counter = () => {
           <p>ye children wala paragraph hai</p>
         </Card>
       </div> */}
+
+      <Card2 />
     </>
   );
 };

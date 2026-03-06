@@ -25,3 +25,10 @@ const handler = () => {
 };
 
 export default React.memo(Card);
+
+
+// What is State ? 
+
+// state 1 react built in object hai ===>  matlab react mai state 1 esa object hai jo data store kerke rakhta hai. jab bi state update hoti hai to component re render hojata hai.
+
+
