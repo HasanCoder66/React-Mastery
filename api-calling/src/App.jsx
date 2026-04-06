@@ -9,7 +9,7 @@ const App = () => {
 const [products, setProducts] = useState([])
 
   const getData =async () => {
-    let response =await axios.get("https://picsum.photos/v2/list")
+    let response =await axios.get("https://picsum.photos/v2/list/page=2")
     console.log(response)
    
   setProducts(response.data)
