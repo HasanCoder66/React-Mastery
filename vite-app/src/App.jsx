@@ -32,7 +32,6 @@
 //     //   {users && users.map((u,i) => <li key={i}>{u}</li>)}
 //     //   </ul> */}
 
-
 //     // </div>
 //     <>
 //   {/* <div className='cardParent'>
@@ -45,15 +44,12 @@
 // <button onClick={() => setCount(count + 1)}>Increment 1</button>
 // <button onClick={resetFn}>Reset</button>
 
-
 // <Parent />
 //     </>
 //   )
 // }
 
 // export default App
-
-
 
 // function Parent (){
 //   console.log("render ==>")
@@ -73,48 +69,123 @@
 // )
 // }
 
+// import React, { useState } from 'react'
 
+// const App = () => {
+//   const [count, setCount] = useState(0)
 
+//   const handleIncrement = () => {
+//     setCount(prev => prev + 1)
+//   }
+//   const handleDecrement = () => {
+//     setCount(prev => prev - 1)
+//   }
+//   const handleReset = () => {
+// setCount(0)
+//   }
+//   return (
+//     <>
+//     <h2>Total Clicks : {count}</h2>
 
+//     <Counter handleIncrement={handleIncrement}
+// handleDecrement={handleDecrement} onReset={handleReset}/>
+//     </>
+//   )
+// }
 
-import React, { useState } from 'react'
+// export default App
+
+// function Counter ({handleIncrement,
+// handleDecrement,onReset}){
+// return (
+//   <>
+//   <button onClick={handleIncrement}>Increment</button>
+//   <button onClick={handleDecrement}>Decrement</button>
+
+//   <div>
+//     <button onClick={onReset}>Reset</button>
+//   </div>
+//   </>
+// )
+// }
+
+import React, { useState } from "react";
+import ButtonCmp from "./component/Button";
+import InputCmp from "./component/InputCmp";
+import Paper from "@mui/material/Paper";
 
 const App = () => {
-  const [count, setCount] = useState(0)
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const [reTypePass, setRetypePass] = useState("");
 
-  const handleIncrement = () => {
-    setCount(prev => prev + 1)
-  }
-  const handleDecrement = () => {
-    setCount(prev => prev - 1)
-  }
-  const handleReset = () => {
-setCount(0)
-  }
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  console.log(formData)
+
+  const signupHandler = () => {
+    
+    console.log("signup handler working ==>")
+    setFormData({
+      email : email,
+      password : pass,
+      confirmPassword  : reTypePass
+    })
+
+
+
+  };
+
+  const handleSetEmail = (val) => {
+    
+    setEmail(val);
+  };
+  const handleSetPass = (val) => {
+    
+    setPass(val);
+  };
+  const handleSetRetypePass = (val) => {
+    
+    setRetypePass(val);
+  };
+
   return (
-    <>
-    <h2>Total Clicks : {count}</h2>
+    <Paper
+      elevation={4}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        width: "500px",
+        padding: "20px",
+        // marginTop:"45px"
+      }}
+    >
+      <InputCmp
+        label={"email here"}
+        email={email}
+        handleValChange={handleSetEmail}
+      />
+      <InputCmp
+        label={"password here"}
+        pass={pass}
+        handleValChange={handleSetPass}
+      />
+      <InputCmp
+        label={"reenter password here"}
+        reTypePass={reTypePass}
+        handleValChange={handleSetRetypePass}
+      />
+      <ButtonCmp
+        title={"Signup"}
+        variant={"contained"}
+        clickHandler={signupHandler}
+      />
+    </Paper>
+  );
+};
 
-
-    <Counter handleIncrement={handleIncrement}
-handleDecrement={handleDecrement} onReset={handleReset}/>
-    </>
-  )
-}
-
-export default App
-
-
-function Counter ({handleIncrement,
-handleDecrement,onReset}){
-return (
-  <>
-  <button onClick={handleIncrement}>Increment</button>
-  <button onClick={handleDecrement}>Decrement</button>
-
-  <div>
-    <button onClick={onReset}>Reset</button>
-  </div>
-  </>
-)
-}
+export default App;
