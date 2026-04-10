@@ -1,7 +1,7 @@
 import TextField from "@mui/material/TextField";
 import React from "react";
 
-const InputCmp = ({ label, value, handleValChange  }) => {
+const InputCmp = ({ label, value, name, handleFieldValChange  }) => {
     // console.log(handleValChange )
   return (
     <TextField
@@ -14,7 +14,7 @@ const InputCmp = ({ label, value, handleValChange  }) => {
       }}
       value={value}
       onChange={(e) => {
-        handleValChange(e.target.value);
+        handleFieldValChange(name,e.target.value);
       }}
     />
   );

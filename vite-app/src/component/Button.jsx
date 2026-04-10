@@ -3,9 +3,9 @@ import React from 'react'
 import Button from '@mui/material/Button';
 
 
-const ButtonCmp = ({variant, title, clickHandler}) => {
+const ButtonCmp = ({variant, title, loginHandler}) => {
   return (
-    <Button onClick={clickHandler} variant={variant}>{title}</Button>
+    <Button onClick={loginHandler} variant={variant}>{title}</Button>
   )
 }
 

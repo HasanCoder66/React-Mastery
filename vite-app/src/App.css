@@ -64,3 +64,12 @@
 .red{
   background-color: red;
 } */
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+}

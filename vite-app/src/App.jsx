@@ -109,48 +109,105 @@
 // )
 // }
 
+// import React, { useState } from "react";
+// import ButtonCmp from "./component/Button";
+// import InputCmp from "./component/InputCmp";
+// import Paper from "@mui/material/Paper";
+
+// const App = () => {
+//   const [email, setEmail] = useState("");
+//   const [pass, setPass] = useState("");
+//   const [reTypePass, setRetypePass] = useState("");
+
+//   const [formData, setFormData] = useState({
+//     email: "",
+//     password: "",
+//     confirmPassword: "",
+//   });
+
+//   console.log(formData)
+
+//   const signupHandler = () => {
+
+//     console.log("signup handler working ==>")
+//     setFormData({
+//       email : email,
+//       password : pass,
+//       confirmPassword  : reTypePass
+//     })
+
+//   };
+
+//   const handleSetEmail = (val) => {
+
+//     setEmail(val);
+//   };
+//   const handleSetPass = (val) => {
+
+//     setPass(val);
+//   };
+//   const handleSetRetypePass = (val) => {
+
+//     setRetypePass(val);
+//   };
+
+//   return (
+//     <Paper
+//       elevation={4}
+//       sx={{
+//         display: "flex",
+//         flexDirection: "column",
+//         width: "500px",
+//         padding: "20px",
+//         // marginTop:"45px"
+//       }}
+//     >
+//       <InputCmp
+//         label={"email here"}
+//         email={email}
+//         handleValChange={handleSetEmail}
+//       />
+//       <InputCmp
+//         label={"password here"}
+//         pass={pass}
+//         handleValChange={handleSetPass}
+//       />
+//       <InputCmp
+//         label={"reenter password here"}
+//         reTypePass={reTypePass}
+//         handleValChange={handleSetRetypePass}
+//       />
+//       <ButtonCmp
+//         title={"Signup"}
+//         variant={"contained"}
+//         clickHandler={signupHandler}
+//       />
+//     </Paper>
+//   );
+// };
+
+// export default App;
+
 import React, { useState } from "react";
-import ButtonCmp from "./component/Button";
+import { Box, Paper, Typography } from "@mui/material";
 import InputCmp from "./component/InputCmp";
-import Paper from "@mui/material/Paper";
+import ButtonCmp from "./component/Button";
 
 const App = () => {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [reTypePass, setRetypePass] = useState("");
-
-  const [formData, setFormData] = useState({
+  const [form, setForm] = useState({
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
-  console.log(formData)
-
-  const signupHandler = () => {
-    
-    console.log("signup handler working ==>")
-    setFormData({
-      email : email,
-      password : pass,
-      confirmPassword  : reTypePass
-    })
-
-
-
+  const handleFieldValChange = (field, val) => {
+    setForm({
+      ...form,
+      [field]: val,
+    });
   };
 
-  const handleSetEmail = (val) => {
-    
-    setEmail(val);
-  };
-  const handleSetPass = (val) => {
-    
-    setPass(val);
-  };
-  const handleSetRetypePass = (val) => {
-    
-    setRetypePass(val);
+  const loginHandler = () => {
+    console.log("login handler is working ==>", form);
   };
 
   return (
@@ -161,28 +218,39 @@ const App = () => {
         flexDirection: "column",
         width: "500px",
         padding: "20px",
-        // marginTop:"45px"
+        height: "300px",
+        borderRadius: "20px",
+        // alignItems:"center",
+        justifyContent: "center",
       }}
     >
+      <Typography
+        sx={{
+          fontSize: "32px",
+          fontWeight: "bold",
+          textAlign: "center",
+          marginBottom: "15px",
+        }}
+      >
+        Login Jani
+      </Typography>
       <InputCmp
-        label={"email here"}
-        email={email}
-        handleValChange={handleSetEmail}
+        name={"email"}
+        label={"Enter Email Here"}
+        handleFieldValChange={handleFieldValChange}
+        value={form.email}
       />
       <InputCmp
-        label={"password here"}
-        pass={pass}
-        handleValChange={handleSetPass}
+        name={"password"}
+        label={"Enter Password Here"}
+        handleFieldValChange={handleFieldValChange}
+        value={form.password}
       />
-      <InputCmp
-        label={"reenter password here"}
-        reTypePass={reTypePass}
-        handleValChange={handleSetRetypePass}
-      />
+
       <ButtonCmp
-        title={"Signup"}
+        title={"Login"}
         variant={"contained"}
-        clickHandler={signupHandler}
+        loginHandler={loginHandler}
       />
     </Paper>
   );
