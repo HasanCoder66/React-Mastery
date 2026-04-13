@@ -10,14 +10,12 @@ function App() {
   const [open, toggle] =  useToggle()
   const [count, setCount] = useState(0)
 
-
   // const a = useRef(0)
   const btnRef = useRef()
 
-
   useEffect(() => {
     // a.current = a.current + 1
-    // btnRef.current.  
+    // btnRef.current.
     // console.log(`Rendering..... time`)
     // btnRef.current.style.background = "yellow"
     // console.log(`Rendering..... value of is ${a.current}`)
@@ -55,3 +53,43 @@ function App() {
 }
 
 export default App
+
+// import React, { act, useReducer, useState } from "react";
+
+// const App = () => {
+//   // const [count, setCount] = useState(0);
+
+//   const [count, dispatch] = useReducer((state , action) => {
+// if(action.type == "Increment"){
+//   return state + 1
+// }
+// if(action.type == "Decrement"){
+//   return state - 1
+// }
+//   }, 0)
+//   return (
+//     <div>
+//       <h1>Count value is {count}</h1>
+
+//       <button
+//         onClick={() => {
+//           dispatch({type:"Increment"})
+//           // setCount((prev) => prev + 1);
+//         }}
+//       >
+//         Increment
+//       </button>
+//       <button
+//         onClick={() => {
+//           dispatch({type:"Decrement"})
+//           // console.log("chl raha ho");
+//           // setCount((prev) => prev - 1);
+//         }}
+//       >
+//         Decrement
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default App;
