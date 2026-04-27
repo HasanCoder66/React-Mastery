@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  currentUser: false,
+  currentUser: null,
   users: [],
 };
 const authSlice = createSlice({
@@ -14,14 +14,13 @@ const authSlice = createSlice({
     },
 
     login: (state, action) => {
-      console.log(state, action);
 
       const {email, password} = action.payload;
 
       const user = state.users.find((u) => u.email == email && u.password == password)
 
       if(user) {
-        state.currentUser = true
+        state.currentUser = user
       }
     },
     

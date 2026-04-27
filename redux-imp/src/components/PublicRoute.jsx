@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 
 const PublicRoute = ({children}) => {
-    const user = useSelector((state) => state.auth)
-      console.log(user)
+    const user = useSelector((state) => state.auth.currentUser)
+      // console.log(user)
       
     
-        if(user.currentUser) return <Navigate to="/dashboard" />
+        if(user) return <Navigate to="/dashboard" />
     
         return children
 

@@ -26,7 +26,7 @@ const Signup = () => {
           console.log("please fill the fields.")
           return
         }
-    console.log("signup form .........", form)
+    // console.log("signup form .........", form)
 
     dispatch(signup(form))
 
